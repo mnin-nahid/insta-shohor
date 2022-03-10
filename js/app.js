@@ -1,7 +1,8 @@
 let posts=[ ];
+console.log(posts);
 
-const likedPostsId = [];
-const reportedPostsId = [];
+let likedPostsId = [];
+let reportedPostsId = [];
 
 const getLikedPosts = () => {
     return posts.filter((post) => likedPostsId.includes(post.id));
@@ -16,7 +17,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -163,7 +164,6 @@ const loadPosts = async () =>{
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
-  console.log(posts);
 }
 
 loadPosts();
